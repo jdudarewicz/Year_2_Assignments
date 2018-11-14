@@ -1,0 +1,4 @@
+Project to display, as well as calculate unions and intersections of various interval sets. Project had to operate 1 million operations
+in under 30 seconds with no errors, given inputs from a tester program from a secret rng seed to be released after the project was due.
+My program was able to compute 1 million operations in under 2 seconds, with correct outputs, recieving a mark of 80% (determined by
+its operation in comparison to the rest of the class)
