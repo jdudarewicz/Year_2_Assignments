@@ -1,0 +1,3 @@
+This program contains two methods which interact with a linked list program, located at http://www.scs.ryerson.ca/~ikokkari/java305/IntList.java ,
+and a tester program, located at http://www.scs.ryerson.ca/~ikokkari/java305/IntListMethodsTest.java , to sort and remove elements from a linked list.
+Implementation was a dynamic mergesort, which could remove and sort 10 1 million element linked lists in around 7 seconds.
