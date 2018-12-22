@@ -1,0 +1,245 @@
+{% extends "guideheader.html" %}
+{% block content %}
+<div class="content">
+        <div class="text-content">
+            <h3>Materialize Tutorial</h3>
+            <h5>CSS and Buttons</h5>
+            <p>Materialize CSS is a great framework for making aesthetically appealing websites as it uses the Google design methods that focus on user experience down to a science.
+            <br>Unlike Bootstrap, Materialize has a large colour palette to choose from in it’s CSS. This allows for greater customizability in creating backgrounds, panels, buttons, or text.</p>
+            <p>Here we have five indigo buttons with white text. To get a darker shade or a lighter shade of indigo simpily type: <br> lighten/darken-(amount) <br> Where lighten makes the colour brighter and darken makes it darker, the amount is the degree of change.</p>
+            <!-- <img src="https://i.imgur.com/OhQepn0.png" class = "regularpic"/><br><br> -->
+            <div class="card-panel"><xmp>
+            <a class="btn-large indigo lighten-2 white-text btn">Button</a>
+            <a class="btn-large indigo lighten-1 white-text btn">Button</a>
+            <a class="btn-large indigo white-text btn">Button</a>
+            <a class="btn-large indigo darken-1 white-text btn">Button</a>
+            <a class="btn-large indigo darken-2 white-text btn">Button</a>
+            </xmp></div>
+            <a class="btn-large indigo lighten-2 white-text btn">Button</a>
+            <a class="btn-large indigo lighten-1 white-text btn">Button</a>
+            <a class="btn-large indigo white-text btn">Button</a>
+            <a class="btn-large indigo darken-1 white-text btn">Button</a>
+            <a class="btn-large indigo darken-2 white-text btn">Button</a>
+            <br>
+            <p>There are also various icons that could be used by nesting an "i" tag, Notice when "waves-effect waves-light" is added it gives a ripple effect when clicked. A button like this was used on the submit page</p>
+            <div class="card-panel"><xmp><a onclick="M.toast({html: 'There is no cake!'})" class="btn-large waves-effect waves-light indigo white-text ">Click For  <i class="large material-icons">cake</i></a></xmp></div>
+            <a onclick="M.toast({html: 'There is no cake!'})" class="btn-large waves-effect waves-light indigo white-text ">Click For  <i class="large material-icons">cake</i></a>
+            <p>The Materialize CSS also alows us to do other cool animations. Here is a case that was used on the demo page where a floating button appears at the botton right after scrolling past a certain point. <br>
+            In this demo it apears after scrolling 90 pixles from the top of the page and disappears after scrolling 1000 pixels from the top. This is especially usful when the navbar of a website is not pinned and buttons get hidden when scrolling down. <br>
+            Having a pinned navbar would take up valuable screen realesate, so it would be better to have a smaller floating button. In order to use this floating action button, it must be initialized using jQuery. And the behaviour of the animation is done through a javascript function. 
+            </p>
+            <div class="card-panel">Initializing the floating button<xmp>
+            <!--Import jQuery before materialize.js-->
+            <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script>
+            $(document).ready(function(){
+            //Floating Action Button
+                $('.fixed-action-btn').floatingActionButton();        
+            });
+            </script>
+            </xmp></div>
+
+            <div class="card-panel">The Floating Button and it's javascript function<xmp>
+                <div id="add" class="fixed-action-btn">
+                <a class="btn-floating btn-large indigo waves-effect waves-light scale-transition scale-out" href="{% url 'demohome' %}">
+                <i class="large material-icons">arrow_upward</i>
+                </a>
+                </div>
+                <script>
+                    window.onscroll = function() {coolFloatingButton()};
+            
+                    function coolFloatingButton() {
+                    if ((document.body.scrollTop > 90) && (document.body.scrollTop < 1000) ) {
+                        $(".btn-floating").removeClass("scale-out").addClass("scale-in");
+                    } else {
+                        $(".btn-floating").removeClass("scale-in").addClass("scale-out");
+                    }   
+                    }
+                </script>
+            </xmp></div>
+
+            <div id="add" class="fixed-action-btn">
+            <a class="btn-floating btn-large indigo waves-effect waves-light scale-transition scale-out" href="{% url 'demo' %}">
+            <i class="large material-icons">arrow_upward</i>
+            </a>
+            </div>
+            <script>
+                window.onscroll = function() {coolFloatingButton()};
+    
+                function coolFloatingButton() {
+                if ((document.body.scrollTop > 90  && document.body.scrollTop < 1000 || document.documentElement.scrollTop > 90 && document.documentElement.scrollTop < 1000) ) {
+                    $(".btn-floating").removeClass("scale-out").addClass("scale-in");
+                } else {
+                    $(".btn-floating").removeClass("scale-in").addClass("scale-out");
+                }
+                }
+            </script>
+
+            <h5>Images</h5>
+            <p>Too display images there are a couple options between cards, material boxes, and parrallax. In our demo we decided to use parrallax because it's a unique way of showing images and is used in many modern websites. To parrallax is easy to implement but also needs to be imported throught jQuery.</p>
+            <div class="card-panel">insert this into the previous function for floating buttons<xmp>
+                $('.parallax').parallax();
+            </xmp></div>
+            <div class="card-panel">The Parrallax component<xmp>
+                 <div class="parallax"><img src="https://i.imgur.com/y8ZpBDz.jpg"/></div>
+            </xmp>
+            </div>
+        </div>
+    </div>
+            <div class="parallax-container">
+                <div class="parallax"><img src="https://i.imgur.com/y8ZpBDz.jpg"/></div>
+            </div>
+    <div class="content">
+            <div class="text-content">
+            <p>It is important to configre the css correctly for parrallax so that it works on mobile. Materialize can set certain CSS styles or hide certain content depending if viewed from a desktop, tablet, or mobile device. <br>
+            In order to have parrallax work on mobile devices the height of the image must to be lowered since the image hieght of parrallax is set to 500 pixels by default.
+            </p>
+            <div class="card-panel"><xmp>
+                 @media only screen and (max-width: 600px) {
+                    .parallax-container {
+                        height: 150px;
+                    }
+                }
+            </xmp></div>
+
+            <p>Another method that we played around with was material boxes. They are images that when hovered over it lightens the image, and when clicked it will show the full size of the image and a caption can also be placed in its full state. This also have to be initialized through jQuery.
+            <div class="card-panel"><xmp>
+                 $('.materialboxed').materialbox();
+            </xmp></div>
+            <div class="card-panel"><xmp>
+                 <img class="materialboxed image" width="650" src="https://i.imgur.com/Tvtpfn3.jpg" data-caption="The Slave Ship by J.W Turner"/>
+            </xmp></div>
+                <img class="materialboxed image" width="650" src="https://i.imgur.com/Tvtpfn3.jpg" data-caption="The Slave Ship by J.W Turner"/>
+            <h3>Django Tutorial</h3>
+            <p>
+                On our demo and project website, we utilize Django as a backend framework. While Django is not directly responsible for making our website look beautiful, it’s model-view-template architecture helps ensure beautiful content is easy to create. 
+            </p>
+            <p>
+                What is model-view-template?
+            </p>
+            <p>
+                We should define a model, view, and template separately first.
+            </p>
+            <p>
+                To begin, a <b>model</b> is a subclass of Django’s Models class that maps each subclass to a database table. Basically, it’s what creates the database table and parameters to store our websites information. It’s a really useful tool to generate dynamic pages easily, as it allows for the automatic creation of databases utilizing only simple code, as we will explore later. 
+            </p>
+            <p>
+                A <b>view</b> is used by Django to tell it which files to draw to the screen when called by a url. 
+            </p>
+            <p>
+                A <b>template</b> is used by Django views to display content on the users screen, generally in HTML files. Django uses a special templating engine, jinja, which adds logical operators to HTML code. 
+            </p>
+            <p>
+                Now let's create a beautiful Django website, by exploring templating.
+            </p>
+            <img src ="https://i.imgur.com/oPiMJgd.png" class = "regularpic"/>
+            <p>
+                Django’s jinja templating allows developers to avoid unnecessarily repeating code, while maintaining consistent design. As highlighted by sections ( 1 ) and ( 2 ) in the above image, we can split the jinja template into two sections, the header ( 1 ) and the main content. It may not appear so to the user, but our header and main content files are created in completely separate HTML files, connected by jinja. This is achieved using nested content blocks in our jinja templates which when compiled by jinja connect the two HTML pages, allowing for repeated use of HTML code. Breaking it down to it’s core , this is how the markup would look to connect the files above:
+            </p>
+            <p>
+                Header ( 1 ):
+            </p>
+            <img src ="https://i.imgur.com/5PY4Jda.png" class = "regularpic"/>
+            <p>
+                Main Content ( 2 ):
+            </p>
+            <img src ="https://i.imgur.com/yV8Enh4.png" class = "regularpic"/>
+            <p>
+                As you can see, there are odd tags embedded within the code- that is jinja markup. The 
+            </p>
+            <p class = "code">
+                {{ '{% block content %} {% endblock %}' }}
+            </p>
+            <p>
+                markup in the header code ( 1 ) tells jinja where to insert HTML code when the header file is extended. In the main content file ( 2 ), the 
+            </p>
+            <p class = "code">
+                {{ '{ % extends “header.html” %}' }} 
+            </p>
+            <p>
+                markup calls the header file to insert this HTML into the block content tags in the Header file. Finally, the 
+            </p>
+            <p class = "code">
+                {{ '{% block content %} {% endblock %}' }}
+            </p>
+            <p>
+                markup tells what HTML in the main content file to insert into the header HTML.
+            </p>
+            <p>
+                Now that jinja knows how to format the websites HTML, we need to tell Django what HTML to load in each URL. This is where views help us. 
+            </p>
+            <p>
+                A simple view, like what is seen on the liteboard homepage, allows us to associate and render a view when a url is called. For example:
+            </p>
+            <img src ="https://i.imgur.com/IYGXk8k.png" class = "regularpic"/>
+            <p>
+                is all that is needed to tell django to render the homepage. This function takes a request (generated by Django when the user calls the associated url), and returns a ‘render’, which displays the homepage html, while also passing the request on. 
+            </p>
+            <p>
+                A more complex view, like what is needed to display the form associated with our database, looks like this: 
+            </p>
+            <img src ="https://i.imgur.com/necQ1uq.png" class = "regularpic"/>
+            <p>
+                In essence, this form method accepts a user request, checking if either the user requested a POST or GET. If they requested a POST, the user is attempting to submit form information. The method attempts to submit the information to a form if its valid, and if it is, it redirects back to the homepage after saving to the database. If they request a GET method, this means they are trying to access the form to enter information, so it renders the form HTML while also passing a variable to the jinja code, called form which allows the user to interact with the database through a sanitized input (we will explore this later). 
+            </p>
+            <p>
+                Finally, to allow our website to dynamically display data, we can look at models. 
+            </p>
+            <p>
+                Django models are amazingly powerful snippets of python code that allow for the automatic generation of entire databases. On liteboard, we only utilize one table of data, but it makes for a great example of the simplicity of models:
+            </p>
+            <img src ="https://i.imgur.com/H5V75nU.png" class = "regularpic"/>
+            <p>
+                This entire class tells Django how to generate the information we need. title, name, link, and date_submitted all generate columns within SQLite, and set the restrictions on data type using inputted values. There is no need to ever write SQLite database code, as Django handles everything for you.
+            </p>
+            <p>
+                Now that we’ve explored how Django utilizes the model-view template, let's move on to see how we actually retrieve user data from the database, and store it. To begin, let's look at the forms page Itself. 
+            </p>
+            <img src = "https://i.imgur.com/vlLDi0I.png" class = "regularpic"/>
+            <p>
+                Again we can see the same header we had on the first page, in ( 1 ). As explained on the demo’s home page, we don’t need to redefine the code for it, we just tell it to reuse our predefined code and nest the new page into it. What is new on this page is our form, highlighted in ( 2 ).
+            </p>
+            <p>
+                While it would appear to the user to just be a regular html form (and the HTML markup would mirror that), it is actually a form element entirely generated by Django (though it is styled). We can see this by looking at the actual code, written in jinja and interpreted by Django:
+            </p>
+            <img src ="https://i.imgur.com/Joz7lJn.png" class = "regularpic"/>
+            <p>
+                As you can see in the code, the entire form will be generated by the variable  &lbrace;&lbrace; 'form.as_p ' &rbrace;&rbrace; , telling Django to write the form, but wrap / set all applicable tags to paragraph tags. Where is the form coming from?  Let’s look back to the form view we posted earlier. 
+            </p>
+            <img src ="https://i.imgur.com/necQ1uq.png" class = "regularpic"/>
+            <p>
+                As you can see in the final line, the code returns a render. Within that render, at the every end, you can see &lbrace;‘form’: form&rbrace;. That is telling Django to pass the form view to the target page to be accessed by jinja later- as we saw in the &lbrace;&lbrace; form.as_p &rbrace;&rbrace;.
+            </p>
+            <p>
+                Now, that we have seen how to let users submit data using Django, we need to explore how that data is actually accessed to be displayed. For that, we need to go back to the main page.
+            </p>
+            <p>
+                Since the data is coming from a database, we need a dynamic solution to fetch data when a user enters the page. Specifically, we need a loop. 
+            </p>
+            <p>
+                Thankfully, Django and jinja make that easy to do:
+            </p>
+            <img src ="https://i.imgur.com/vQgHuaF.png" class = "regularpic"/>
+            <p>
+                What this code does, is it grabs all the items post in object_list, where the object_list is the entire collection of database rows, and post is each individual database row. Then, embedded in the html header and image code, are jinja variables grabbing select column values from each post to be inserted. This code is repeated until there exist no more posts in the database, dynamically generating html per post.
+            </p>
+            <p>
+                With that said, with an understanding of the template-view-model architecture, and how django can connect forms and databases together to create user generated dynamic content, you should now have a good understanding of how liteboard was created! 
+            </p>
+        </div>
+    </div>
+            <!--Import jQuery before materialize.js-->
+         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+         <script>
+         $(document).ready(function(){
+        //Parallax
+            $('.parallax').parallax();
+        //Material box
+            $('.materialboxed').materialbox();
+        //Floating Action Button
+            $('.fixed-action-btn').floatingActionButton();        
+         });
+        </script>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "header.html" %}
+
+{% block content %}
+        <style>
+        .content {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .materialboxed {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        @media only screen and (max-width: 600px) {
+            .parallax-container {
+                height: 150px;
+            }
+        }
+        </style>
+
+        <body>
+        <div id="add" class="fixed-action-btn">
+            <a class="btn-floating btn-large light-blue waves-effect waves-light scale-transition scale-out" href="{% url 'submit' %}">
+            <i class="large material-icons">add</i>
+            </a>
+        </div>
+
+        {% for post in object_list %}
+        <div class = "content">
+            <h5>{{ post.title }}</h5>
+            <h5>{{ post.name }}</h5>
+            <h5>{{ post.date_submitted|date:"Y-m-d" }}</h5>
+
+            <!-- Uncomment to enable parallax -->
+            <div class="parallax-container">
+                <div class="parallax"><img src="{{ post.link }}"/></div>
+            </div>
+
+            <!-- Comment out to disable materialbox -->
+            <!-- <img class="materialboxed image" src="{{ post.link }}" data-caption="{{ post.date_submitted|date:"Y-m-d" }}"/> -->
+
+        </div>
+        {% endfor %}
+        
+        <!--Import jQuery before materialize.js-->
+         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+         <script>
+         $(document).ready(function(){
+        //Parallax
+            $('.parallax').parallax();
+        //Material box
+            $('.materialboxed').materialbox();
+        //Floating Action Button
+            $('.fixed-action-btn').floatingActionButton();        
+         });
+        </script>
+        <script>
+            window.onscroll = function() {coolFloatingButton()};
+    
+            function coolFloatingButton() {
+            if (document.body.scrollTop > 90 || document.documentElement.scrollTop > 90) {
+                $(".btn-floating").removeClass("scale-out").addClass("scale-in");
+            } else {
+                $(".btn-floating").removeClass("scale-in").addClass("scale-out");
+            }   
+            }
+        </script>
+    </body> 
+{% endblock %}

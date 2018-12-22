@@ -1,0 +1,20 @@
+{% extends "header.html" %}
+{% block content %}
+    <style>
+        .formdiv {
+            margin-left: 2%;
+            margin-right: 2%;
+        }
+    </style>
+    <div class = "formdiv">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="light-blue darken-1 white-text btn waves-effect waves-light" type="submit" 
+            name="action">Submit
+            <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html lang="en">
+        <head>
+            <title>Web Dev Project</title>
+            <meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+			<!-- Compiled and minified CSS -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+			<!-- Compiled and minified JavaScript -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+			
+			<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+        </head>
+    <style>
+		* {
+			box-sizing: border-box;
+		}
+		.center {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+		}
+		body {
+			margin: 0;
+			font-family: 'Roboto', sans-serif;
+		}
+		/* Style header */
+		.header {
+			background-color: #f1f1f1;
+			padding: 10px;
+		}
+		/* Style the top navigation bar */
+		.topnav {
+			overflow: hidden;
+			background-color: #333;
+		}
+
+		/* Style the topnav links */
+		.topnav a {
+			float: left;
+			display: block;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+
+		/* Change color on hover */
+		.topnav a:hover {
+			background-color: #ddd;
+			color: black;
+		}
+
+		/* Style the cycling images */
+		.slideshow {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+		}
+
+		.mySlides {
+			text-align:  center;
+			display:none;
+		}
+
+
+		/* Style the content */
+		.content {
+			background-color: #ddd;
+			width: 100%;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		.text-content {
+			width: 85%;
+			text-align: justify;
+			margin-left: auto;
+			margin-right: auto;
+		}
+        
+        .code {
+            text-align: center;
+			margin-top: 30px;
+			margin-bottom: 30px;
+			font-family: 'Roboto Mono', monospace;
+		}
+
+		.profiler {
+			width: 70%;
+			border-radius: 50%;
+		}
+		
+		.column {
+			float: left;
+			text-align: left;
+			width: 33.33%;
+		}
+
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		.regularpic {
+			display: block;
+			margin-left: absolute;
+			margin-right: auto;
+			width: 90%;
+		}
+
+		/* Materialize Homepage*/
+		.frameworkpic {
+			display: block;
+			margin-left: absolute;
+			margin-right: auto;
+			width: 35%;
+		}
+
+		/* Style the footer */
+		.footer {
+			background-color: #f1f1f1;
+			padding: 10px;
+		}
+		.centerfooter {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;	
+		}
+
+		xmp {
+			white-space: pre-wrap;
+		}
+
+		@media only screen and (max-width: 600px) {
+			.parallax-container {
+				height: 150px;
+			}
+		}
+	</style>
+    <body>
+        <!-- Navigation Bar -->
+        <div class="topnav">
+            <a href="{% url 'home' %}">Framework Summary</a>
+            <a href="{% url 'install' %}">Installation Tutorial</a>
+            <a href="{% url 'demo' %}">Demo Creation</a>
+            <a href="{% url 'demohome' %}">Demo Page</a>
+            <a href="{% url 'conclusion' %}">Conclusion</a>
+            <a href="{% url 'credits' %}">Credits</a>
+        </div>
+        <div>
+            {% block content %}{% endblock %}
+        </div>
+        <!-- Division -->
+	    <div class="topnav">
+            &nbsp <br>
+            &nbsp
+        </div>
+    
+        <!-- Footer -->
+        <div class="footer">
+            <div class="centerfooter">
+                <p>Sources: <a href="https://www.djangoproject.com/">Django (Python)</a> &nbsp &nbsp  <a href="https://materializecss.com/ ">Materialize CSS</a> 
+                &nbsp &nbsp  Hosted on: <a href="https://www.digitalocean.com/?refcode=6350bfbec950">Digital Ocean</a>&nbsp &nbsp 
+                Project: <a href="http://cps530.scs.ryerson.ca/project/cps530_prj_f18.html">Guidelines</a> </p>
+            </div>
+        </div>
+    </body>
+</html>

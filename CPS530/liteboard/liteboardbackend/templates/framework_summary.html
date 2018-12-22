@@ -1,0 +1,96 @@
+{% extends "guideheader.html" %}
+{% block content %}
+    <!-- Image cycling slideshow CSS -->
+	<div class="slideshow">
+	<img class="mySlides" src="https://i.imgur.com/F33agix.jpg" style="width:750px;height:400px;"> <!-- Put alternate image -->
+	<img class="mySlides" src="https://i.imgur.com/YpdLerm.jpg" style="width:750px;height:400px;">
+	<img class="mySlides" src="https://i.imgur.com/BHn3iZP.png" style="width:750px;height:400px;">
+	</div>
+
+	<!-- Image cycling script -->
+	<script>
+	var myIndex = 0;
+	carousel();
+
+	function carousel() {
+		var i;
+		var x = document.getElementsByClassName("mySlides");
+		for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";  
+		}
+		myIndex++;
+		if (myIndex > x.length) {myIndex = 1}    
+		x[myIndex-1].style.display = "block";  
+		setTimeout(carousel, 4500); // Change image every 3 seconds
+	}
+	</script>
+
+	<!-- Division -->
+	<div class="topnav">
+		&nbsp <br>
+		&nbsp
+	</div>
+
+	<!-- Paragraphs and content -->
+	<div class="content">
+		<div class="text-content">
+			<div class="frameworkpic">
+				<img src="https://i.imgur.com/eYdhdiz.jpg" style="width:500px;height:300px;"> <!-- Put alternate image -->
+			</div>
+
+			<h3>Materialize CSS</h3>
+			 <p>A responsive front-end framework created by Google. <a href="https://materializecss.com/ ">Materialize</a> is used by developers who want to incorporate material design aesthetics and effects to a webpage. 
+	These include: artistic portfolios, web browsers, professional work portfolios, small businesses and many more. However, its artistic style is very common between 
+	various webpages making it easy to identify which sites are using Materialize. Additionally, it is often considered to be a beginner framework for easy of entry 
+	before moving onto more advanced frameworks. Here are a few examples: <a href=" https://www.android-kiosk.com/ "> Kiosk Browser </a>, 
+	<a href="http://closeheat.com/">Close Heat </a>, and <a href="https://eadbox.com/ ">eadBox</a>.
+  </p>			<h5>Strengths</h5>
+				<p><a href="https://materializecss.com/ ">Materialize.css</a> uses a very simple grid system which allows users to create page layouts efficently.
+					Many users also commented on how clean and contemporary the style and overall presentation the framework
+					provides. Additionally, it has been known for its ease of use, not requiring a large amount of time to learn.
+					One final strength is the variety and choice of components user have. These options allows users to truly customize
+					every aspect of their site.
+				</p>
+				
+				<h5>Weaknesses</h5>
+					<p> In terms of weaknesses, while the style and look of <a href="https://materializecss.com/ ">Materialize.css</a> is great, they often lack a unique characteristic to them.
+						Meaning that you can easily spot a site that uses Materialize.css. This is not the case when compared to other frameworks who each have
+						their own sense of unique qualities and flare. A few more things to consider, Materialize.css is very new and is not supported by certain 
+						old browsers. Generally, the size of Material css files are larger in size compared to other frameworks.
+					</p>
+			
+			<br> <br>
+			
+			<div class="frameworkpic">
+				<img src="https://i.imgur.com/qbeXYsH.png" alt="https://i.imgur.com/CWKv7GB.png" style="width:500px;height:300px;">
+			</div>
+				
+			<h3>Django Python</h3>
+				<p>Django is a free open-source high level Python Web framework that aids in rapid web development. In terms of developers, 
+	<a href="https://www.djangoproject.com/">Django</a> is favoured among start-ups due to its scalability of size allowing for any range of products from small to large. 
+	Another key factor of why developers use Django is due to its ability to handle large amounts of site visitor traffic without 
+	being overwhelmed. Some notable websites include the <a href="https://www.washingtonpost.com/?noredirect=on">Washington Post</a>, <a href="https://www.youtube.com/">Youtube
+	</a>, <a href="https://www.google.com/">Google</a>, <a href="https://www.reddit.com/">Reddit</a> and many more. The framework is 
+	built upon the Python programming language which is now considered the most popular for learning code. For this reason, developers 
+	tend to gravitate towards it because it allows them to rollout projects more consistently with more emphasis on creativity over learning 
+	a new language. The types of websites that use Django are often content heavy; <a href="https://www.instagram.com/">Instagram</a>, <a href="https://www.pinterest.ca/">Pinterest</a>, or various news sites for example. 
+	</p>
+			
+				<h5>Strengths</h5>
+					<p><a href="https://www.djangoproject.com/">Django</a> remains a staple for python web development and a favourite for developers for its easy learning curve. 
+						This allows for users to dive right in and start creating without having to go through dozens of tutorials. 
+						Additionally, it provides features such as Generating Forms which keeps track of validation and form 
+						rendering further streamlining production. The framework itself is compatible with many utilized databases making it easy to migrate from one database to another. Overall, Django is a very solid framework and worth using.
+						
+					</p>
+				
+				<h5>Weaknesses</h5>
+				<p>While <a href="https://www.djangoproject.com/">Django</a> is very effective, keep in mind there are a few disadvantages to be aware of. 
+					Firstly, in order to maintain backwards compatibility, it tends to be updated less frequently compared to other frameworks. Another factor to consider is the restriction 
+					towards developers implementing their own logic. It goes against having freedom, flexibility and choice of how to implement certain functions which detracts from the overall experience. 
+					One last point to consider is its inability to manage multiple requests simultaneously. Most web systems have methods in place for dealing with multiple requests at once. Keep these in mind if deciding to use Django framework.
+
+				</p>
+			</div>
+		</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "guideheader.html" %}
+{% block content %}
+<div class="content">
+    <div class="text-content">
+        <h3>Materialize Installation</h3>
+        <p> Materialize does not need to be installed in the traditional sense. While it can be installed to node.js with the node package manager (npm), our website only utilizes script tags to install materialize. 
+            To make your website materialize ready, you need to link / import the materialize icon CSS, minified CSS, and JavaScript in the head element of your html page:
+        </p>
+        <img src="https://i.imgur.com/TS7zAqS.png" class="regularpic"/>
+        <p>
+            Then within the body of your html file, you need to import JQuery and minified materialize JS:
+        </p>
+        <img src="https://i.imgur.com/GWfx5Dr.png" class="regularpic"/>
+        <p>Now your materialize page should be ready!</p><br>
+        <h3>Django installation</h3>
+        <h5>Install Python</h5>
+        <p>
+            To install Python on Windows you can download the latest Python release from <a href="https://www.python.org/downloads/">here</a>, you want the latest version of Python. Then once downloaded, run the executable and follow the given instructions.
+            If you are using a linux distro with apt-get, you can install Python by navigating to terminal and entering the following commands:
+        </p>
+        <p class="code">
+            sudo add-apt-repository ppa:jonathonf/python-3.6 <br>
+            sudo apt-get update <br>
+            sudo apt-get install python3.6
+        </p>
+        <p>
+            If you are using Mac OS X, you need to follow a few steps. First, install a package manager- this tutorial will suggest Homebrew. Open terminal with GCC capabilities (<a href="https://developer.apple.com/xcode/">here</a>), and run
+        </p>
+        <p class="code">
+            ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        </p>
+        <p>
+                Then, follow the script instructions. Now you need to insert Homebrew directory at the top of your PATH environment variable
+        </p>
+        <p class = "code">
+            export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+            <br>OR<br>
+            export PATH=/usr/local/bin:/usr/local/sbin:$PATH                
+        </p>
+        <p>
+            Now, install Python with
+        </p>
+        <p class="code">
+            brew install python
+        </p>
+        <h5>Install Django</h5>
+        <p>
+            Thankfully, now that Python is installed, Django can be installed on all systems easily. 
+            To install django, run:
+            <p>
+        <p class = "code">
+            pip install Django==2.1.3
+            <br> or <br>
+            pip3 install Django==2.1.3
+        </p>
+            depending on the version of pip you have installed with your python distribution. Now Django should be installed and executable by Python!
+            To create your first project, cd to where you want your project to be located, and type
+        </p>
+        <p class="code">
+            django-admin startproject mysite
+        </p>
+        <p>
+            where mysite is any name you want to name your project. Its okay if you decide to change its location later, as long as you move all the project files Django shouldn’t complain. Then type
+        </p>
+        <p class="code">
+            python manage.py runserver
+        </p>
+        <p>
+            from the root directory of the newly created website, and navigate to the address it mentions, which should be localhost - http://127.0.0.1:8000/ 
+        </p>
+        <p>
+            If you see a landing page, then congratulations! You installed Django properly, and now you can begin your first Django project :)
+        </p>
+    </div>
+</div>
+{% endblock %}
