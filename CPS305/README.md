@@ -1,1 +1,1 @@
-A collection of my CPS305 projects
+A collection of my CPS305 (Data Structures) projects
