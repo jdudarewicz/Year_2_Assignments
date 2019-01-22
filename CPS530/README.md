@@ -1,6 +1,10 @@
 ## Description
-My final project for CPS530 (web development). Lead a group of 3 students to create a website.
-I designed the backend, utilizing Django and SQLite3. The frontend utilized Jinja Templating, as well as Materialize CSS. 
+CPS530 (web development) Term Project. I Lead a group of 3 students to create a full stack website. The back end utilized Python + Django. Data was stored in a SQLite3 database, automatically created by Django. The frontend utilized Jinja Templating, as well as Materialize CSS. 
+
+Roles: 
+Jacob Dudarewicz: Lead, developed specifications, developed backend, developed database, wrote documentation
+Jason Ho: Designed front-end, developed front end, wrote documentation
+Christopher Ho: Designed documentation, developed front end, wrote documentation
 
 ## Screenshots
 <div style="text-align: center">
