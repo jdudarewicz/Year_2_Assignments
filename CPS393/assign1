@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo -e ' \ttime in milliseconds'
+echo -e 'n  \tFibS(n) \tFibD(n)'
+echo -e '- \t---- \t\t----'
+
+for i in $( seq $1 $2 )
+do
+        START1=$(date +%s%3N)
+        ./fibS $i > /dev/null
+        END1=$(date +%s%3N)
+        DIFF1=$(($END1 - $START1))
+        START2=$(date +%s%3N)
+        ./fibD $i > /dev/null
+        END2=$(date +%s%3N)
+        DIFF2=$(($END2 - $START2))
+
+        if [[ ${#DIFF1} -le 2 ]]
+        then
+                echo -e $i ' \t' $DIFF1'ms'  ' \t\t' $DIFF2'ms'
+        else
+                echo -e $i ' \t' $DIFF1'ms'  ' \t' $DIFF2'ms'
+        fi
+done
