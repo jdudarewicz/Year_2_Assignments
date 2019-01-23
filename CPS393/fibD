@@ -1,0 +1,30 @@
+#!/bin/bash
+
+fibDfunction () {
+        if [[ $1 == 0 ]]
+        then
+                echo 0
+        elif [[ $1 == 1 ]]
+        then
+                echo 1
+        elif  [[ ${SAVED[$1]} != 0 ]]
+        then
+                echo ${SAVED[$1]}
+        else
+                SAVED[$1]=$((`fibDfunction $(($1 - 1))` + `fibDfunction $(($1 - 2))` ))
+                echo ${SAVED[$1]}
+        fi
+}
+
+SAVED=()
+for i in $( seq 0 $1 )
+do
+        SAVED[$i]=0
+done
+
+for i in $( seq 0 $1 )
+do
+        fibDfunction $i > /dev/null
+done
+
+echo ${SAVED[$1]}
