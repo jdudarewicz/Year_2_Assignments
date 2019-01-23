@@ -1,0 +1,15 @@
+#!/bin/bash
+
+fibSfunction () {
+        if [[ $1 == 0 ]]
+        then
+                echo 0
+        elif [[ $1 == 1 ]]
+        then
+                echo 1
+        else
+                echo $(( `fibSfunction $(($1 - 1))` + `fibSfunction $(($1 - 2))` ))
+        fi
+}
+
+fibSfunction $1
